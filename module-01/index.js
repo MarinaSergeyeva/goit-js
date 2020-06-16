@@ -147,6 +147,25 @@
 //   }
 // }
 
+// ===================================== task-EXTRA ============================================ //
+
+// const padding = "20px";
+// const border = "5px";
+// const contentWidth = "100px";
+
+// let totalWidth;
+
+// const newPadding = Number.parseInt(padding);
+// console.log("newP:", newPadding);
+// const newBorder = Number.parseInt(border);
+// console.log("newB:", newBorder);
+// const newContentWidth = Number.parseInt(contentWidth);
+// console.log("newC:", newContentWidth);
+
+// totalWidth = newPadding + newBorder + newContentWidth + "px";
+
+// console.log(totalWidth); // 125px
+
 // ===================================== task-06-with-buttons-DOESN'T-WORK ============================================ //
 
 // let input;
