@@ -166,6 +166,17 @@
 
 // console.log(totalWidth); // 125px
 
+// ===================================== task-EXTRA-2 ============================================ //
+
+// 16\06\2020
+
+const day = 2;
+const mounth = "06";
+const year = 2020;
+
+const date = "0" + day + mounth + year;
+console.log(date);
+
 // ===================================== task-06-with-buttons-DOESN'T-WORK ============================================ //
 
 // let input;
