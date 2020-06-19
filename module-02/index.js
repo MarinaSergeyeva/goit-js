@@ -1,15 +1,16 @@
 // ===================================== task-01 ============================================ //
-const logItems = function (array) {
-  // console.log(array);
+// const logItems = function (array) {
+//   // console.log(array);
 
-  for (let i = 0; i < array.length; i += 1) {
-    let indexArrayItem = array.indexOf(array[i]) + 1;
-    console.log(`${indexArrayItem} - ${array[i]}`);
-};
+//   for (let i = 0; i < array.length; i += 1) {
+//     let indexArrayItem = array.indexOf(array[i]) + 1;
+//     console.log(`${indexArrayItem} - ${array[i]}`);
+//   }
+// };
 
-logItems(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]);
+// logItems(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]);
 
-logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+// logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 // ===================================== task-02 ============================================ //
 
 // Напиши скрипт подсчета стоимости гравировки украшений.
@@ -53,20 +54,20 @@ logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 
 // -----------------------------------------------------------------------------------------------
 
-// const findLongestWord = function (string) {
-//   let words = string.split(" ");
-//   console.log(words);
+const findLongestWord = function (string) {
+  let words = string.split(" ");
+  console.log(words);
 
-//   let longestWord = words[0];
-//   // console.log(longestWord);
+  let longestWord = words[0];
+  // console.log(longestWord);
 
-//   for (i = 1; i < words.length; i += 1)
-//     if (longestWord.length < words[i].length) {
-//       longestWord = words[i];
-//       // console.log(longestWord);
-//     }
-//   return longestWord;
-// };
+  for (i = 1; i < words.length; i += 1)
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
+      // console.log(longestWord);
+    }
+  return longestWord;
+};
 
 // /*
 //  * Вызовы функции для проверки работоспособности твоей реализации.
