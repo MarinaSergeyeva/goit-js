@@ -226,6 +226,8 @@ const Transaction = {
 
 console.log(Transaction);
 
+let id = 0;
+
 const account = {
   // Текущий баланс счета
   balance: 0,
@@ -237,7 +239,18 @@ const account = {
    * Метод создает и возвращает объект транзакции.
    * Принимает сумму и тип транзакции.
    */
-  createTransaction(amount, type) {},
+  createTransaction(amount, type) {
+    id += 1;
+    const transaction = {
+      amount: amount,
+      type: type,
+      id: id,
+    };
+    console.log(transaction);
+    this.transactions.push(transaction);
+
+    return transaction;
+  },
 
   /*
    * Метод отвечающий за добавление суммы к балансу.
@@ -245,7 +258,20 @@ const account = {
    * Вызывает createTransaction для создания объекта транзакции
    * после чего добавляет его в историю транзакций
    */
-  deposit(amount) {},
+  deposit(amount) {
+    this.createTransaction();
+
+    const values = Object.values(this.createTransaction.transaction);
+    console.log(this.createTransaction.transaction);
+
+    if (values.includes("deposit")) {
+      this.balance += amount;
+      console.log(values);
+    }
+
+    console.log(this.balance);
+    console.log(this.transactions);
+  },
 
   /*
    * Метод отвечающий за снятие суммы с баланса.
@@ -256,17 +282,27 @@ const account = {
    * Если amount больше чем текущий баланс, выводи сообщение
    * о том, что снятие такой суммы не возможно, недостаточно средств.
    */
-  withdraw(amount) {},
+  withdraw(amount) {
+    console.log("Снятие невозможно. Недостаточно средств!");
+  },
 
   /*
    * Метод возвращает текущий баланс
    */
-  getBalance() {},
+  getBalance(balance) {
+    return this.balance;
+  },
 
   /*
    * Метод ищет и возвращает объект транзации по id
    */
-  getTransactionDetails(id) {},
+  getTransactionDetails(id) {
+    for (this.transaction in this.transactions) {
+      if (this.transaction.includes(id)) {
+        return this.transaction;
+      }
+    }
+  },
 
   /*
    * Метод возвращает количество средств
@@ -276,3 +312,13 @@ const account = {
 };
 
 console.log(account);
+account.createTransaction(400, "deposit");
+account.createTransaction(100, "deposit");
+account.createTransaction(200, "deposit");
+account.createTransaction(600, "withdraw");
+account.createTransaction(200, "withdraw");
+
+// account.deposit();
+// account.withdraw();
+// console.log(account.getBalance());
+// console.log(account.getTransactionTotal("deposit"));
