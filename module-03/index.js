@@ -247,8 +247,9 @@ const account = {
       id: id,
     };
     console.log(transaction);
-    this.transactions.push(transaction);
 
+    this.transactions.push(transaction);
+    // console.log(this.transactions);
     return transaction;
   },
 
@@ -259,17 +260,12 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    this.createTransaction();
-
-    const values = Object.values(this.createTransaction.transaction);
-    console.log(this.createTransaction.transaction);
-
-    if (values.includes("deposit")) {
-      this.balance += amount;
-      console.log(values);
+    this.createTransaction(amount, type);
+    if (transaction.type === "deposit") {
+      this.transactions.push(transaction);
     }
+    // console.log(transaction);
 
-    console.log(this.balance);
     console.log(this.transactions);
   },
 
@@ -312,11 +308,11 @@ const account = {
 };
 
 console.log(account);
-account.createTransaction(400, "deposit");
-account.createTransaction(100, "deposit");
-account.createTransaction(200, "deposit");
-account.createTransaction(600, "withdraw");
-account.createTransaction(200, "withdraw");
+account.createTransaction(400, Transaction.DEPOSIT);
+account.createTransaction(100, Transaction.DEPOSIT);
+account.createTransaction(200, Transaction.DEPOSIT);
+account.createTransaction(600, Transaction.WITHDRAW);
+account.createTransaction(200, Transaction.WITHDRAW);
 
 // account.deposit();
 // account.withdraw();
