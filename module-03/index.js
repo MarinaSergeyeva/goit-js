@@ -246,9 +246,9 @@ const account = {
       type: type,
       id: id,
     };
-    console.log(transaction);
+    // console.log(transaction);
 
-    this.transactions.push(transaction);
+    // this.transactions.push(transaction);
     // console.log(this.transactions);
     return transaction;
   },
@@ -260,13 +260,10 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    this.createTransaction(amount, type);
-    if (transaction.type === "deposit") {
-      this.transactions.push(transaction);
-    }
-    // console.log(transaction);
+    const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+    this.balance += amount;
 
-    console.log(this.transactions);
+    return this.transactions.push(transaction);
   },
 
   /*
@@ -279,13 +276,26 @@ const account = {
    * о том, что снятие такой суммы не возможно, недостаточно средств.
    */
   withdraw(amount) {
-    console.log("Снятие невозможно. Недостаточно средств!");
+    // console.log(this.balance);
+
+    if (amount > this.balance) {
+      // this.transactions.push(
+      //   `Снятие невозможно. Недостаточно средств на счету!`
+      // );
+      return `Снятие невозможно. Недостаточно средств на счету!`;
+    }
+
+    const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
+    this.transactions.push(transaction);
+    this.balance -= amount;
+
+    return transaction;
   },
 
   /*
    * Метод возвращает текущий баланс
    */
-  getBalance(balance) {
+  getBalance() {
     return this.balance;
   },
 
@@ -293,9 +303,12 @@ const account = {
    * Метод ищет и возвращает объект транзации по id
    */
   getTransactionDetails(id) {
-    for (this.transaction in this.transactions) {
-      if (this.transaction.includes(id)) {
-        return this.transaction;
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      for (const key in this.transactions[i]) {
+        if (key === "id" && this.transactions[i][key] === id) {
+          // console.log(this.transactions[i][key]);
+          return this.transactions[i];
+        }
       }
     }
   },
@@ -304,17 +317,35 @@ const account = {
    * Метод возвращает количество средств
    * определенного типа транзакции из всей истории транзакций
    */
-  getTransactionTotal(type) {},
+  getTransactionTotal(type) {
+    let sum;
+    // for (let i = 0; i < this.transactions.length; i += 1) {
+    //   const keys = Object.keys(this.transactions[i]);
+    //   for (const key of keys) {
+    //     console.log(this.transactions[i][key]);
+    //   }
+    // }
+
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      const entries = Object.entries(this.transactions[i]);
+      console.log(entries);
+    }
+  },
 };
 
 console.log(account);
-account.createTransaction(400, Transaction.DEPOSIT);
-account.createTransaction(100, Transaction.DEPOSIT);
-account.createTransaction(200, Transaction.DEPOSIT);
-account.createTransaction(600, Transaction.WITHDRAW);
-account.createTransaction(200, Transaction.WITHDRAW);
+// account.createTransaction(400, Transaction.DEPOSIT);
+// account.createTransaction(100, Transaction.DEPOSIT);
+// account.createTransaction(200, Transaction.DEPOSIT);
+// account.createTransaction(600, Transaction.WITHDRAW);
+// account.createTransaction(200, Transaction.WITHDRAW);
 
-// account.deposit();
-// account.withdraw();
-// console.log(account.getBalance());
-// console.log(account.getTransactionTotal("deposit"));
+account.deposit(500);
+account.withdraw(200);
+account.withdraw(150);
+account.withdraw(250);
+account.deposit(800);
+console.log(account.transactions);
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(2));
+console.log(account.getTransactionTotal(Transaction.DEPOSIT));
