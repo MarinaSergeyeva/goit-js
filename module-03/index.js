@@ -349,3 +349,98 @@ console.log(account.transactions);
 console.log(account.getBalance());
 console.log(account.getTransactionDetails(2));
 console.log(account.getTransactionTotal(Transaction.DEPOSIT));
+
+// ===================================== task-07-Izmail ============================================ //
+// const Transaction = {
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
+// let typeResult = 0;
+// let depositSum = 0;
+// let withdrawSum = 0;
+// // let id = 0;
+// // const account = {
+// //   balance: 0,
+// //   transactions: [],
+// //   createTransaction(amount, type) {
+// //     id += 1;
+// //     const transaction = {
+// //       id: id,
+// //       type: type,
+// //       amount: amount,
+// //     };
+// //     return transaction;
+// //   },
+// let id = 0;
+// const account = {
+//   balance: 0,
+//   transactions: [],
+//   createTransaction(amount, type) {
+//     id += 1;
+//     const transaction = {
+//       id: id,
+//       type: type,
+//       amount: amount,
+//     };
+//     console.table(transaction);
+//     this.transactions.push(transaction);
+//     if (type === Transaction.DEPOSIT) {
+//       this.balance += amount;
+//     } else {
+//       this.balance -= amount;
+//       return transaction;
+//     }
+//   },
+//   deposit(amount) {
+//     this.createTransaction(amount, Transaction.DEPOSIT);
+//   },
+//   withdraw(amount) {
+//     this.createTransaction(amount, Transaction.WITHDRAW);
+//   },
+//   getBalance() {
+//     console.log(this.balance);
+//     return this.balance;
+//   },
+//   getTransactionDetails(id) {
+//     for (const transact of this.transactions) {
+//       if (transact.id === id) {
+//         console.log(transact);
+//         return transact;
+//       }
+//     }
+//   },
+//   getTransactionTotal(type) {
+//     for (const types of this.transactions) {
+//       if (types.type === "deposit") {
+//         depositSum = depositSum + types.amount;
+//       }
+//       console.log(depositSum);
+//       if (types.type === "withdraw") {
+//         withdrawSum = withdrawSum + types.amount;
+//       }
+//       console.log(withdrawSum);
+//     }
+//   },
+// };
+// // account.createTransaction(400, "deposit");
+// // account.createTransaction(100, "deposit");
+// // account.createTransaction(200, "deposit");
+// // account.createTransaction(600, "withdraw");
+// // account.createTransaction(200, "withdraw");
+// // account.deposit();
+// // account.withdraw();
+// // console.log(account.getBalance());
+// // console.log(account.getTransactionTotal("deposit"));
+// // console.table(account.transactions);
+// account.deposit(300);
+// account.deposit(800);
+// account.deposit(400);
+// account.deposit(1200);
+// account.withdraw(200);
+// account.withdraw(700);
+// account.withdraw(700);
+// account.getBalance();
+// account.getTransactionDetails(1);
+// account.getTransactionDetails(3);
+// account.getTransactionTotal("deposit");
+// // account.getTransactionTotal("withdraw");
