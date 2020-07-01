@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery__img {
+  box-sizing: inherit;
+  width: calc(100vw / 3);
+  height: auto;
+}
