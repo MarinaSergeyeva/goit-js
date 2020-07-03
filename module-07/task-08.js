@@ -57,6 +57,7 @@ const destroyBoxes = () => {
   while (boxes.firstChild) {
     boxes.removeChild(boxes.firstChild);
   }
+  x = 30;
 };
 
 create.addEventListener("click", getBoxes);
