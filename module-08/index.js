@@ -28,7 +28,8 @@ const createGalleryItem = () => {
   gallery.innerHTML = markup;
 };
 
-const openModal = () => {
+const openModal = (event) => {
+  event.preventDefault();
   if (event.target.nodeName !== "IMG") {
     console.log("Кликнули не по картинке!");
     return;
@@ -36,9 +37,8 @@ const openModal = () => {
 
   modal.classList.add("is-open");
 
-  const activeImage = event.target;
-
   //   console.dir(activeImage);
+  const activeImage = event.target;
 
   const activeImageLargeURL = activeImage.dataset.source;
   const activeImageLargeALT = activeImage.alt;
@@ -71,32 +71,37 @@ function closeModal(event) {
 }
 
 const clickImage = (event) => {
+  let currentImageSRC = modalImage.getAttribute("src");
+
+  const elementIndex = galleryItems.findIndex(
+    (element) => element.original === currentImageSRC
+  );
+
   if (event.key === "ArrowRight") {
-    console.log("нажата стрелка вправо");
-
-    for (let i = 0; i < galleryItems.length; i += 1) {
-      let index = galleryItems.indexOf(galleryItems[i]);
-      if (modalImage.alt === galleryItems[i].description) {
-        modalImage.src = galleryItems[index + 1].original;
-        modalImage.alt = galleryItems[index + 1].description;
-      }
+    let newElementIndex = elementIndex + 1;
+    console.log("newIndex: ", newElementIndex);
+    console.log("gallery.length: ", galleryItems.length);
+    if (newElementIndex >= galleryItems.length) {
+      newElementIndex = 0;
     }
-    return console.log("Конец галереи");
+    currentImageSRC = modalImage.setAttribute(
+      "src",
+      galleryItems[newElementIndex].original
+    );
   }
+
   if (event.key === "ArrowLeft") {
-    console.log("нажата стрелка влево");
+    let newElementIndex = elementIndex - 1;
+    console.log("newIndex: ", newElementIndex);
+    console.log("gallery.length: ", galleryItems.length);
 
-    for (let i = 0; i < galleryItems.length; i += 1) {
-      if (modalImage.alt === galleryItems[i].description) {
-        let index = galleryItems.indexOf(galleryItems[i]);
-
-        console.dir(modalImage);
-        console.dir(galleryItems[i]);
-
-        modalImage.src = galleryItems[index - 1].original;
-        modalImage.alt = galleryItems[index - 1].description;
-      }
+    if (newElementIndex < 0) {
+      newElementIndex = galleryItems.length - 1;
     }
+    currentImageSRC = modalImage.setAttribute(
+      "src",
+      galleryItems[newElementIndex].original
+    );
   }
 };
 
