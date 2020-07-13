@@ -1,6 +1,6 @@
 // new CountdownTimer({
 //   selector: "#timer-1",
-//   targetDate: new Date("Aug 17, 2020"),
+//   targetDate: new Date("Aug 21, 2020"),
 // });
 
 // import template from "./timer.js";
