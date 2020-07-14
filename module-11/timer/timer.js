@@ -1,12 +1,3 @@
-// new CountdownTimer({
-//   selector: "#timer-1",
-//   targetDate: new Date("Aug 21, 2020"),
-// });
-
-// import template from "./timer.js";
-// const markup = template();
-// document.querySelector("#timer-1").innerHTML = template();
-
 const timer = {
   start() {
     const finishTime = new Date(2020, 7, 21);
@@ -14,7 +5,7 @@ const timer = {
     const hoursText = document.querySelector("span[data-value=hours]");
     const minsText = document.querySelector("span[data-value=mins]");
     const secsText = document.querySelector("span[data-value=secs]");
-    console.log(daysText);
+    // console.log(daysText);
 
     setInterval(() => {
       const currentTime = Date.now();
@@ -42,3 +33,46 @@ const timer = {
 };
 
 timer.start();
+
+// ============================== var-02-doesn't work!!! ==================================
+
+// const clock = {
+//   el: "#clock",
+//   data: {
+//     time: "",
+//     date: "",
+//   },
+// };
+
+// const week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+// function zeroPadding(num, digit) {
+//   let zero = "";
+//   for (let i = 0; i < digit; i += 1) {
+//     zero += "0";
+//   }
+//   return (zero + num).slice(-digit);
+// }
+
+// function updateTime() {
+//   let cd = new Date();
+//   clock.time =
+//     zeroPadding(cd.getHours(), 2) +
+//     ":" +
+//     zeroPadding(cd.getMinutes(), 2) +
+//     ":" +
+//     zeroPadding(cd.getSeconds(), 2);
+//   clock.date =
+//     zeroPadding(cd.getFullYear(), 4) +
+//     "-" +
+//     zeroPadding(cd.getMonth() + 1, 2) +
+//     "-" +
+//     zeroPadding(cd.getDate(), 2) +
+//     " " +
+//     week[cd.getDay()];
+// }
+
+// setInterval(updateTime, 1000);
+
+// updateTime();
+// console.log(clock);

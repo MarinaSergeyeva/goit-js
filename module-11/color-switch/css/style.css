@@ -1,0 +1,125 @@
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+  background-color: #fff;
+  color: #212121;
+}
+
+.timer {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #212121;
+  border-radius: 2px;
+}
+
+.clockface {
+  margin-bottom: 15px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 80px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.timer-btn {
+  display: inline-flex;
+  margin-left: 4px;
+  margin-right: 4px;
+  text-transform: uppercase;
+  border: 0;
+  background-color: #3f51b5;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: #2196f3;
+}
+
+.notifiaction {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 0;
+  background-color: #fff;
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  border-radius: 3px;
+  padding: 24px;
+  user-select: none;
+  cursor: pointer;
+
+  transform: translateX(calc(100% + 20px));
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notifiaction.success {
+  border: 1px solid #388e3c;
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.notifiaction.is-visible {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.actions {
+  margin: 50px;
+  text-align: center;
+}
+
+.button {
+  width: 250px;
+  height: 70px;
+  background: #f3f0f1;
+  /* position: relative; */
+  margin-bottom: 25px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  outline: none;
+  border: none;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: semibold;
+  color: #6f6cde;
+}
+.button:hover {
+  background: #ffffff;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+.button:active {
+  opacity: 1;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+  color: #79e3b6;
+}
+.button:active .button-text {
+  color: #79e3b6;
+}
